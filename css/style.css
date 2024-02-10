@@ -55,39 +55,38 @@
   line-height: 1.5;
 }
 
-.description1 {
-  color: #333; /* Color for description */
-  font-size: 14px; /* Adjust font size as needed */
-  display: block;
-  margin-block-start: 2.33em;
-  margin-block-end: 2.33em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  height: 50px;
-  margin-left: 3px;
-  margin-bottom: 15px;
-  margin-top: 10px;
+.description-box {
+  margin-top: -50px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
 }
 
-.description2{
-  color: #888; /* Color for description */
-  font-size: 14px; /* Adjust font size as needed */
+.description1 {
+  color: #333;
+  font-size: 14px;
   display: block;
-  margin-block-start: 2.33em;
-  margin-block-end: 2.33em;
-  margin-inline-start: 0px;
   margin-inline-end: 0px;
-  margin-left: 3px;
+  height: 50px;
+  margin-bottom: 15px;
+  margin-top: 10px;
+  margin-left: -40px;
+}
+
+.description2 {
+  color: #888;
+  font-size: 14px;
+  display: block;
   margin-top: -10px;
+  margin-left: -40px;
 }
 
 .gsm {
   margin-top: -35px;
 }
 
-.description-box{
-  margin-top: -50px;
-  margin-left: 18px;
+.main_haeding{
+  margin-right: -10px;
 }
 
 #carouselExampleIndicators{
@@ -196,7 +195,6 @@
 .detail-box a {
   display: inline-block;
   margin-top: 20px;
-  padding: 10px 20px;
   background-color: #007bff;
   color: #fff;
   text-decoration: none;
@@ -488,7 +486,6 @@ a:focus {
 }
 
 .slider_section .detail-box {
-  padding-left: 45px;
   margin: 45px 0;
 }
 
@@ -500,7 +497,6 @@ a:focus {
 
 .slider_section .detail-box a {
   display: inline-block;
-  padding: 10px 40px;
   background-color: #db4566;
   color: #ffffff;
   border: 1px solid #db4566;
@@ -668,7 +664,6 @@ a:focus {
 }
 
 .saving_section .detail-box {
-  padding: 0 25px;
 }
 
 .saving_section .detail-box p {
@@ -681,13 +676,11 @@ a:focus {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  margin: 35px -5px 0;
 }
 
 .saving_section .detail-box .btn-box a {
   width: 165px;
   text-align: center;
-  margin: 5px;
 }
 
 .saving_section .detail-box .btn-box .btn1 {
@@ -757,6 +750,10 @@ a:focus {
           align-items: center;
 }
 
+.detail-box{
+  margin-left: 12px;
+}
+
 .gift_section .img-box {
   padding: 60px 0 60px 25px;
 }
@@ -766,7 +763,6 @@ a:focus {
 }
 
 .gift_section .detail-box {
-  padding: 0 25px;
 }
 
 .gift_section .detail-box p {
