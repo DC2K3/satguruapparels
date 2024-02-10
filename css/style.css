@@ -57,32 +57,26 @@
 
 .description-box {
   margin-top: -50px;
+  margin-left: 18px;
   width: 100%;
   height: 100%;
-  text-align: center;
+}
+
+.title_text {
+  color: #333;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .description1 {
   color: #333;
   font-size: 14px;
-  display: block;
-  margin-inline-end: 0px;
-  height: 50px;
-  margin-bottom: 15px;
-  margin-top: 10px;
-  margin-left: -40px;
+  /* margin-left: -40px; */
 }
 
 .description2 {
   color: #888;
   font-size: 14px;
-  display: block;
-  margin-top: -10px;
-  margin-left: -40px;
-}
-
-.gsm {
-  margin-top: -35px;
 }
 
 .main_haeding{
