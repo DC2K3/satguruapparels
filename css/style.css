@@ -65,6 +65,8 @@
   margin-inline-end: 0px;
   height: 50px;
   margin-left: 3px;
+  margin-bottom: 15px;
+  margin-top: 10px;
 }
 
 .description2{
@@ -76,6 +78,7 @@
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   margin-left: 3px;
+  margin-top: -10px;
 }
 
 .gsm {
@@ -1078,3 +1081,14 @@ a:focus {
 
 /* end footer section*/
 /*# sourceMappingURL=style.css.map */
+
+@media (max-width: 768px) {
+  .box {
+    width: 100%; /* Set the width to 100% for smaller screens */
+  }
+
+  .col-sm-6{
+    flex: 0 0 50%; /* Set the flex basis to 50% for two products in a row */
+    width: 50%; /* Set the max-width to 50% for two products in a row */
+  }
+}
