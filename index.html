@@ -119,41 +119,72 @@
         font-weight: bold;
       }
 
-      .simple-carousel-container {
+      
+      body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+      
+      .custom-slider-container {
+        position: relative;
         width: 100%;
+        height: 100vh; /* 75% of the viewport height for desktop */
+        max-height: 100vh; /* Maximum height for desktop */
         overflow: hidden;
       }
-  
-      .simple-carousel {
+      
+      .custom-slider {
         display: flex;
         transition: transform 0.5s ease-in-out;
+        height: 100%;
       }
-  
-      .simple-carousel-item {
+      
+      .custom-slide {
         min-width: 100%;
         box-sizing: border-box;
+        position: relative;
+        overflow: hidden;
       }
-  
-      .simple-carousel img {
+      
+      .custom-img {
         width: 100%;
-        height: auto;
+        height: 100%;
+        object-fit: cover;
       }
-  
-      .simple-carousel-btn {
+      
+      .custom-slide-content {
         position: absolute;
         top: 50%;
-        transform: translateY(-50%);
-        font-size: 24px;
-        cursor: pointer;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: #fff;
+        background-color: rgba(0, 0, 0, 0.5);
       }
-  
-      .simple-prev {
-        left: 10px;
+      
+      .custom-h1 {
+        font-size: 3em;
+        margin-bottom: 10px;
+        color: white;
+        font-style: bold;
       }
-  
-      .simple-next {
-        right: 10px;
+      .custom-p{
+        font-size: 1.2em;
       }
+      
+      @media (max-width: 768px) {
+        .custom-slider-container {
+          height: 100vh; /* 100% of the viewport height for mobile */
+        }
+      }
+
+      @media (max-width: 768px) {
+        .button-upper{
+          margin-top: -100px;
+        }
+      }
+      
     </style>
   </head>
 
@@ -227,51 +258,64 @@
 
       
         <!-- slider banner	 -->
-      <section>
-        <div class="simple-carousel-container">
-          <div class="simple-carousel">
-            <div class="simple-carousel-item"><img src="images\m1.jpg" alt="Image 1"></div>
-            <div class="simple-carousel-item"><img src="images\m2.jpg" alt="Image 2"></div>
-            <div class="simple-carousel-item"><img src="images\tshirt-printing.jpeg" alt="Image 3"></div>
-            <!-- Add more items as needed -->
-          </div>
-        </div>
-
-        <script>
-          let simpleCurrentIndex = 0;
+      
         
-          function showSimpleSlide(index) {
-            const simpleCarousel = document.querySelector('.simple-carousel');
-            const totalSimpleItems = document.querySelectorAll('.simple-carousel-item').length;
-        
-            if (index >= totalSimpleItems) {
-              simpleCurrentIndex = 0;
-            } else if (index < 0) {
-              simpleCurrentIndex = totalSimpleItems - 1;
-            } else {
-              simpleCurrentIndex = index;
-            }
-        
-            const transformValue = -simpleCurrentIndex * 100 + '%';
-            simpleCarousel.style.transform = `translateX(${transformValue})`;
-          }
-        
-          function simpleNextSlide() {
-            showSimpleSlide(simpleCurrentIndex + 1);
-          }
-        
-          function simplePrevSlide() {
-            showSimpleSlide(simpleCurrentIndex - 1);
-          }
-        
-          // Optional: Auto-play
-          setInterval(simpleNextSlide, 5000); // Change the interval as needed
-        </script>
-      </section>
+      
 
       <!-- end slider section -->
     </div>
     <!-- end hero area -->
+
+    <div class="custom-slider-container">
+      <div class="custom-slider">
+        <div class="custom-slide">
+          <img src="images/m1.avif" alt="Image 1" class="custom-img">
+          <div class="custom-slide-content">
+            <h1 class="custom-h1">QUALITY GARMENT MANUFACTURERS</h1>
+            <p class="custom-p">WE ARE A GARMENT MANUFACTURING FIRM THAT SPECIALIZES IN MANUFACTURING GARMENTS IN HOISERY</p>
+          </div>
+        </div>
+        <div class="custom-slide">
+          <img src="images/m2.jpg" alt="Image 2" class="custom-img">
+          <div class="custom-slide-content">
+            <h1 class="custom-h1">QUALITY GARMENT MANUFACTURERS</h1>
+            <p class="custom-p">WE ARE A GARMENT MANUFACTURING FIRM THAT SPECIALIZES IN MANUFACTURING GARMENTS IN HOISERY</p>
+          </div>
+        </div>
+        <div class="custom-slide">
+          <img src="images/tshirt-printing.jpeg" alt="Image 3" class="custom-img">
+          <div class="custom-slide-content">
+            <h1 class="custom-h1">QUALITY GARMENT MANUFACTURERS</h1>
+            <p class="custom-p">WE ARE A GARMENT MANUFACTURING FIRM THAT SPECIALIZES IN MANUFACTURING GARMENTS IN HOISERY</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const slider = document.querySelector(".custom-slider");
+        let isTransitioning = false;
+      
+        function nextSlide() {
+          if (!isTransitioning) {
+            isTransitioning = true;
+            slider.style.transform = "translateX(-100%)";
+            setTimeout(() => {
+              slider.appendChild(slider.firstElementChild);
+              slider.style.transition = "none";
+              slider.style.transform = "translateX(0)";
+              setTimeout(() => {
+                slider.style.transition = "transform 0.5s ease-in-out";
+                isTransitioning = false;
+              });
+            }, 500);
+          }
+        }
+      
+        setInterval(nextSlide, 3000); // Change slide every 3 seconds
+      });           
+    </script>
 
     <!-- Customization section -->
     <div class="svg-box">
@@ -688,7 +732,7 @@
               Do send us an enquire if you have any requirements.
             </p>
             <br>
-                <a href="enquire.html"><button type="button" class="btn btn-primary btn-lg" >Enquire</button></a>
+                <a href="enquire.html"><button type="button" class="btn btn-primary btn-lg button-upper" >Enquire</button></a>
           </div>
         </div>
       </div>
