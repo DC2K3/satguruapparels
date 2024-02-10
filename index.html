@@ -161,16 +161,22 @@
         text-align: center;
         color: #fff;
         background-color: rgba(0, 0, 0, 0.5);
-      }
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
       
       .custom-h1 {
-        font-size: 3em;
+        font-size: 4em; 
         margin-bottom: 10px;
         color: white;
-        font-style: bold;
+        font-weight: bold;
       }
       .custom-p{
-        font-size: 1.2em;
+        font-size: 1em;
       }
       
       @media (max-width: 768px) {
@@ -183,8 +189,28 @@
         .button-upper{
           margin-top: -100px;
         }
+        .hero_area {
+          padding: 0 0;
+        }
+        .custom-h1 {
+          font-size: 2.7em; 
+          margin-bottom: 10px;
+          color: white;
+          font-style: bold;
+        }
       }
       
+      .slider_text {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #fff;
+        flex-direction: column;
+    }
+    
     </style>
   </head>
 
@@ -265,57 +291,85 @@
       <!-- end slider section -->
     </div>
     <!-- end hero area -->
-
+    <div class="hero_area">
     <div class="custom-slider-container">
       <div class="custom-slider">
         <div class="custom-slide">
           <img src="images/m1.avif" alt="Image 1" class="custom-img">
           <div class="custom-slide-content">
-            <h1 class="custom-h1">QUALITY GARMENT MANUFACTURERS</h1>
-            <p class="custom-p">WE ARE A GARMENT MANUFACTURING FIRM THAT SPECIALIZES IN MANUFACTURING GARMENTS IN HOISERY</p>
+            <div class="slider_text">
+            <h1 class="custom-h1">QUALITY GARMENT <br> MANUFACTURERS</h1>
+            <br>
+            <p class="custom-p">WE ARE A GARMENT MANUFACTURING FIRM THAT <br> SPECIALIZES IN MANUFACTURING GARMENTS IN HOISERY</p>
+            <a href="enquire.html"><button type="button" class="btn btn-primary btn-lg" >Enquire</button></a>
+            </div>
           </div>
         </div>
         <div class="custom-slide">
           <img src="images/m2.jpg" alt="Image 2" class="custom-img">
           <div class="custom-slide-content">
-            <h1 class="custom-h1">QUALITY GARMENT MANUFACTURERS</h1>
-            <p class="custom-p">WE ARE A GARMENT MANUFACTURING FIRM THAT SPECIALIZES IN MANUFACTURING GARMENTS IN HOISERY</p>
+            <div class="slider_text">
+              <h1 class="custom-h1">QUALITY GARMENT <br> MANUFACTURERS</h1>
+              <br>
+              <p class="custom-p">WE ARE A GARMENT MANUFACTURING FIRM THAT <br> SPECIALIZES IN MANUFACTURING GARMENTS IN HOISERY</p>
+              <a href="enquire.html"><button type="button" class="btn btn-primary btn-lg" >Enquire</button></a>
+              </div>
           </div>
         </div>
         <div class="custom-slide">
           <img src="images/tshirt-printing.jpeg" alt="Image 3" class="custom-img">
           <div class="custom-slide-content">
-            <h1 class="custom-h1">QUALITY GARMENT MANUFACTURERS</h1>
-            <p class="custom-p">WE ARE A GARMENT MANUFACTURING FIRM THAT SPECIALIZES IN MANUFACTURING GARMENTS IN HOISERY</p>
+            <div class="slider_text">
+              <h1 class="custom-h1">QUALITY GARMENT <br> MANUFACTURERS</h1>
+              <br>
+              <p class="custom-p">WE ARE A GARMENT MANUFACTURING FIRM THAT <br> SPECIALIZES IN MANUFACTURING GARMENTS IN HOISERY</p>
+              <a href="enquire.html"><button type="button" class="btn btn-primary btn-lg" >Enquire</button></a>
+              </div>
           </div>
         </div>
       </div>
     </div>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const slider = document.querySelector(".custom-slider");
-        let isTransitioning = false;
-      
-        function nextSlide() {
-          if (!isTransitioning) {
-            isTransitioning = true;
-            slider.style.transform = "translateX(-100%)";
-            setTimeout(() => {
-              slider.appendChild(slider.firstElementChild);
-              slider.style.transition = "none";
-              slider.style.transform = "translateX(0)";
-              setTimeout(() => {
-                slider.style.transition = "transform 0.5s ease-in-out";
-                isTransitioning = false;
-              });
-            }, 500);
-          }
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const slider = document.querySelector(".custom-slider");
+      let isTransitioning = false;
+  
+      function nextSlide() {
+        if (!isTransitioning) {
+          isTransitioning = true;
+  
+          // Add a transitionend event listener to handle the transition completion
+          slider.addEventListener("transitionend", function transitionEnd() {
+            // Remove the event listener
+            slider.removeEventListener("transitionend", transitionEnd);
+  
+            // Reset styles and transition properties
+            slider.style.transition = "none";
+            slider.style.transform = "translateX(0)";
+  
+            // Move the first slide to the end
+            slider.appendChild(slider.firstElementChild);
+  
+            // Force a reflow before reapplying the transition
+            void slider.offsetWidth;
+  
+            // Reapply the transition
+            slider.style.transition = "transform 0.5s ease-in-out";
+  
+            // Reset the flag
+            isTransitioning = false;
+          });
+  
+          // Move to the next slide
+          slider.style.transform = "translateX(-100%)";
         }
-      
-        setInterval(nextSlide, 3000); // Change slide every 3 seconds
-      });           
-    </script>
+      }
+  
+      setInterval(nextSlide, 3000); // Change slide every 3 seconds
+    });
+  </script>
+  
 
     <!-- Customization section -->
     <div class="svg-box">
@@ -830,7 +884,7 @@
                 <div class="info_link-box data-p">
                   <a href="">
                     <i class="fa fa-map-marker" aria-hidden="true"></i>
-                    <span> 35th Rd, Khar, Khar West, Mumbai, Maharashtra 400050 </span>
+                    <span class="span"> 35th Rd, Khar West, Mumbai, Maharashtra 400050 </span>
                   </a>
                   <a href="">
                     <i class="fa fa-phone" aria-hidden="true"></i>
