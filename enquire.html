@@ -13,12 +13,29 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <link rel="apple-touch-icon" sizes="180x180" href="images\PHOTOS-20240123T045342Z-001/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="images\PHOTOS-20240123T045342Z-001/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images\PHOTOS-20240123T045342Z-001/favicon-16x16.png">
-    <link rel="manifest" href="images\PHOTOS-20240123T045342Z-001/site.webmanifest">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="images\PHOTOS-20240123T045342Z-001/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images\PHOTOS-20240123T045342Z-001/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="images\PHOTOS-20240123T045342Z-001/favicon-16x16.png"
+    />
+    <link
+      rel="manifest"
+      href="images\PHOTOS-20240123T045342Z-001/site.webmanifest"
+    />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
 
     <title>Enquire Satguru Apparels</title>
 
@@ -37,7 +54,7 @@
     <!-- responsive style -->
     <link href="css/responsive.css" rel="stylesheet" />
     <style>
-      .label{
+      .label {
         color: gray;
         font-size: 12px;
       }
@@ -85,7 +102,11 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html" onclick="scrollToSection('Why')">
+                <a
+                  class="nav-link"
+                  href="about.html"
+                  onclick="scrollToSection('Why')"
+                >
                   About
                 </a>
               </li>
@@ -120,71 +141,140 @@
               <form id="enquiryForm">
                 <div class="form-group">
                   <label for="name">Name *</label>
-                  <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required />
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your name"
+                    required
+                  />
                 </div>
                 <div class="form-group">
                   <label for="email">Email *</label>
-                  <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required />
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                  />
                 </div>
                 <div class="form-group">
                   <label for="phone">Phone Number *</label>
-                  <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter your phone number" pattern="[0-9]{10}" required />
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="phone"
+                    name="phone"
+                    placeholder="Enter your phone number"
+                    pattern="[0-9]{10}"
+                    required
+                  />
                 </div>
                 <div class="form-group">
                   <label for="message">Requirements *</label>
-                  <textarea class="form-control" id="message" name="message" rows="4" placeholder="Enter your requirements" required></textarea>
+                  <textarea
+                    class="form-control"
+                    id="message"
+                    name="message"
+                    rows="4"
+                    placeholder="Enter your requirements"
+                    required
+                  ></textarea>
                 </div>
-                <label class="label">If possible mention product, number of pieces, preferred fabric, design, budget, and by when do you need it. If possible attach a reference image/design.</label>
-                
-                <button type="button" class="btn btn-primary" onclick="validateAndSubmit()">Submit</button>
+                <label class="label"
+                  >If possible mention product, number of pieces, preferred
+                  fabric, design, budget, and by when do you need it. If
+                  possible attach a reference image/design.</label
+                >
+
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  onclick="validateAndSubmit()"
+                >
+                  Submit
+                </button>
               </form>
             </div>
           </div>
         </div>
       </div>
     </section>
-  
+
     <script>
       function validateAndSubmit() {
         // Validate Name
-        var nameInput = document.getElementById('name');
+        var nameInput = document.getElementById("name");
         if (nameInput.value.length < 3) {
-          alert('Name should be at least 3 characters long.');
+          alert("Name should be at least 3 characters long.");
           return;
         }
-  
+
         // Validate Phone Number
-        var phoneInput = document.getElementById('phone');
+        var phoneInput = document.getElementById("phone");
         if (!/^\d{10}$/.test(phoneInput.value)) {
-          alert('Please enter a valid 10-digit phone number.');
+          alert("Please enter a valid 10-digit phone number.");
           return;
         }
-  
+
         // Validate Email
-        var emailInput = document.getElementById('email');
+        var emailInput = document.getElementById("email");
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
-          alert('Please enter a valid email address.');
+          alert("Please enter a valid email address.");
           return;
         }
-  
-        // If all validations pass, submit the form
+
+        // If all validations pass, submit the form to the API endpoint
         const name = encodeURIComponent(document.getElementById("name").value);
-        const email = encodeURIComponent(document.getElementById("email").value);
-        const phone = encodeURIComponent(document.getElementById("phone").value);
-        const message = encodeURIComponent(document.getElementById("message").value);
+        const email = encodeURIComponent(
+          document.getElementById("email").value
+        );
+        const phone = encodeURIComponent(
+          document.getElementById("phone").value
+        );
+        const message = encodeURIComponent(
+          document.getElementById("message").value
+        );
 
-        let mailtoLink = `mailto:satguruapparels@gmail.com?subject=Enquiry&body=Name: ${name}%0AEmail: ${email}%0APhone: ${phone}%0AMessage: ${message}`;
+        const formData = {
+          name: name,
+          email: email,
+          phone: phone,
+          message: message,
+        };
 
-        // Open default email client
-        window.location.href = mailtoLink;
+        fetch(
+          "https://i1k5tvr794.execute-api.ap-south-1.amazonaws.com/test1/inquiry",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          }
+        )
+          .then((response) => {
+            // console.log("Response2:", response);
+            return response.json();
+          })
+          .then((data) => {
+            // console.log("API response:", data);
+            alert("Form submitted successfully!");
+          })
+          .catch((error) => {
+            console.error("Error submitting form  :", error);
+            alert("An error occurred. Please try again later.");
+          });
       }
-      
     </script>
 
     <section class="info_section layout_padding2-top">
       <div class="social_container">
         <div class="social_box">
-          <img src="images\copylogo.png" width="250px" alt="">
+          <img src="images\copylogo.png" width="250px" alt="" />
         </div>
       </div>
       <div class="info_container">
@@ -201,37 +291,68 @@
             <div class="col-md-6 col-lg-3">
               <div class="info_form">
                 <h5>Want Brochure?</h5>
-                <form action="#" method="post" onsubmit="sendEmail(); return false;">
-                  <input type="email" id="emailInput" placeholder="Enter your email" required />
+                <form
+                  action="#"
+                  method="post"
+                  onsubmit="sendBrochureRequest(); return false;"
+                >
+                  <input
+                    type="email"
+                    id="emailInput"
+                    placeholder="Enter your email"
+                    required
+                  />
                   <button type="submit">Send Brochure</button>
                 </form>
               </div>
             </div>
-            
+
             <script>
-            function sendEmail() {
-              var email = document.getElementById("emailInput").value;
-            
-              // Check if the email is valid (you might want to add more validation)
-              if (!validateEmail(email)) {
-                alert("Please enter a valid email address.");
-                return;
+              function sendBrochureRequest() {
+                var email = document.getElementById("emailInput").value;
+
+                // Check if the email is valid (you might want to add more validation)
+                if (!validateEmail(email)) {
+                  alert("Please enter a valid email address.");
+                  return;
+                }
+
+                const formData = {
+                  email: email,
+                  name: "-",
+                  phone: "-",
+                  message: "Requested for brochure",
+                };
+
+                fetch(
+                  "https://i1k5tvr794.execute-api.ap-south-1.amazonaws.com/test1/inquiry",
+                  {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(formData),
+                  }
+                )
+                  .then((response) => {
+                    // console.log("Response2:", response);
+                    return response.json();
+                  })
+                  .then((data) => {
+                    // console.log("API response:", data);
+                    alert("Form submitted successfully!");
+                  })
+                  .catch((error) => {
+                    console.error("Error submitting form  :", error);
+                    alert("An error occurred. Please try again later.");
+                  });
               }
-            
-              var subject = encodeURIComponent("Send Brochure Request");
-              var body = encodeURIComponent("Send Brochure request from: " + email);
-            
-              var mailtoLink = "mailto:satguruapparels@gmail.com?subject=" + subject + "&body=" + body;
-            
-              // Open default email client
-              window.location.href = mailtoLink;
-            }
-            
-            function validateEmail(email) {
-              // Add your email validation logic here
-              // This is a basic example, you might want to use a regular expression or a library
-              return /\S+@\S+\.\S+/.test(email);
-            }
+
+              function validateEmail(email) {
+                // Add your email validation logic here
+                // This is a basic example, you might want to use a regular expression or a library
+                return /\S+@\S+\.\S+/.test(email);
+              }
             </script>
             <div class="col-md-6 col-lg-3">
               <h6>NEED HELP</h6>
@@ -249,8 +370,7 @@
                 </a>
                 <a href="">
                   <i class="fa fa-phone" aria-hidden="true"></i>
-                  <span style="display: block;">9821035278 / 8850322464</span>
-                  
+                  <span style="display: block">9821035278 / 8850322464</span>
                 </a>
                 <a href="">
                   <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -269,26 +389,7 @@
       </footer>
       <!-- footer section -->
     </section>
-    
-    <script>
-      function submitForm() {
-        const form = document.getElementById('enquiryForm');
-        const formData = new FormData(form);
-    
-        // Construct mailto link with formatted body
-        let mailtoLink = 'mailto:satguruapparels@gmail.com';
-        mailtoLink += '?subject=Enquiry Submission';
-    
-        // Iterate through form data and append to the body
-        formData.forEach((value, key) => {
-          mailtoLink += `&${key}=${encodeURIComponent(value)}`;
-        });
-    
-        // Redirect to mailto link
-        window.location.href = mailtoLink;
-      }
-    </script>
-    
+
     <!-- enquire area end-->
 
     <!-- enquire area end-->
