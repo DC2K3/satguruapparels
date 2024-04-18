@@ -13,6 +13,9 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta name="author" content="" />
+
+    <title>About Satguru Apparales</title>
+
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -37,8 +40,6 @@
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
 
-    <title>Accessories by Satguru Apparels</title>
-
     <!-- slider stylesheet -->
     <link
       rel="stylesheet"
@@ -55,57 +56,112 @@
     <link href="css/responsive.css" rel="stylesheet" />
 
     <style>
-      .card {
-        height: 100%; /* Set a fixed height for all cards */
+      body {
+        background-color: #f8f9fa;
+        color: #495057;
       }
 
-      .card-img-top {
-        height: 200px; /* Set a fixed height for all card images */
-        object-fit: cover; /* Ensure the image covers the entire container */
+      .container {
+        margin-top: 50px;
       }
 
-      .card-body {
-        height: 100px; /* Set a fixed height for all card bodies */
-        display: flex;
-        align-items: center; /* Center content vertically */
-      }
-      .sidebar {
-        margin-top: 21px;
+      h2 {
+        color: #007bff;
       }
 
-      .dis {
-        background-color: beige;
+      p {
+        font-size: 18px;
+        line-height: 1.6;
       }
 
-      .disclaimer-section {
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      ul li {
+        border-bottom: 1px solid #dee2e6;
+      }
+
+      .client-list {
+        list-style-type: none;
+        padding: 0;
+        margin-top: 20px;
+      }
+
+      .client-list li {
+        margin-bottom: 10px;
+      }
+
+      .jumbotron {
+        background-color: #007bff;
+        color: #fff;
+        padding: 60px 20px;
+        margin-bottom: 30px;
+      }
+
+      .jumbotron h1 {
+        font-size: 48px;
+        font-weight: bold;
+      }
+
+      .jumbotron p {
+        font-size: 24px;
+      }
+
+      .feature-box {
         background-color: #fff;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        margin: 20px;
         padding: 20px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        text-align: center;
       }
 
-      .disclaimer-section h2 {
-        color: #333;
+      .client-collage img {
+        width: 100%; /* Make the image responsive */
+        max-height: 300px; /* Set the maximum height as needed */
       }
 
-      .disclaimer-section p {
-        color: #555;
-        line-height: 1.5;
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Arial", sans-serif;
       }
 
-      .dis {
-        background-color: beige;
+      .carousel-container {
+        overflow: hidden;
+        background-color: #ddd; /* Grey background */
+      }
+
+      .carousel-wrapper {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+      }
+
+      .carousel-slide {
+        display: flex;
+        width: 100%;
+      }
+
+      .carousel-slide img {
+        width: 100%;
+        object-fit: cover;
+      }
+
+      .image-container {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .image-container .label {
+        width: 48%; /* Adjust the width as needed */
+
+        .nav-item {
+          margin-top: -20px;
+        }
       }
     </style>
-
-    <script>
-      function scrollToSection(sectionId) {
-        var section = document.getElementById(sectionId);
-        section.scrollIntoView({ behavior: "smooth" });
-      }
-    </script>
   </head>
 
   <body>
@@ -139,16 +195,16 @@
                   >Home <span class="sr-only">(current)</span></a
                 >
               </li>
-              <li class="nav-item active">
+              <li class="nav-item">
                 <a
                   class="nav-link"
-                  href="#"
+                  href="index.html"
                   onclick="scrollToSection('Products')"
                 >
                   Products
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item active">
                 <a class="nav-link" href="about.html"> About </a>
               </li>
               <li class="nav-item">
@@ -172,90 +228,12 @@
 
     <!-- shop section -->
 
-    <section class="shop_section layout_padding" id="Products">
-      <div class="container">
-        <div class="heading_container heading_center">
-          <h2>ACCESSORIES</h2>
-        </div>
-        <div class="row">
-          <div class="col-lg-3">
-            <div class="sidebar">
-              <a href="t-shirt.html">T-Shirts</a>
-              <a href="sweatshirt.html">Sweatshirts</a>
-              <a href="jersey.html">Jersey</a>
-              <a href="jackets.html">Jackets</a>
-              <a href="joggers.html">Joggers</a>
-              <a href="shorts.html">Shorts</a>
-              <a href="accesories.html">Accessories</a>
-              <a href="oversized.html">Oversized</a>
-              <!-- Add more links as needed -->
-            </div>
-            <br />
-            <br />
-
-            <button
-              class="btn btn-primary"
-              onclick="scrollToSection('size-chart')"
-            >
-              Size Chart
-            </button>
-          </div>
-          <div class="col-lg-9">
-            <div class="row">
-              <div
-                class="col-sm-6 col-md-4 col-lg-4"
-                onclick="scrollToSection('available-prints')"
-              >
-                <div class="box">
-                  <div class="img-box">
-                    <img
-                      src="images\DP_s\accessories mock up\caps.png"
-                      alt=""
-                    />
-                  </div>
-                  <div class="detail-box">
-                    <h6>Cap</h6>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="col-sm-6 col-md-4 col-lg-4"
-                onclick="scrollToSection('available-prints')"
-              >
-                <div class="box">
-                  <div class="img-box">
-                    <img
-                      src="images\DP_s\accessories mock up\tote bags.png"
-                      alt=""
-                    />
-                  </div>
-                  <div class="detail-box">
-                    <h6>Tote-bag</h6>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- end shop section -->
-
-    <div class="container">
-      <div class="disclaimer-section layout_padding dis">
-        <h2>Disclaimer</h2>
-        <p>
-          i) Explore our diverse color options for each product. Request a shade
-          card to find your perfect match. (common for all)
-        </p>
-        <p>
-          ii) The perfect pairing of prints for the specific fabric in which the
-          garment is made / Upgrade your garment with prints that perfectly
-          match the fabric it's made from. (subject to the required print)
-        </p>
-      </div>
+    <div class="jumbotron text-center">
+      <h1 class="display-4">PHOTOS</h1>
+      <p class="lead">Crafting Quality Garments with Passion</p>
     </div>
+
+    <!-- info section -->
 
     <section class="info_section layout_padding2-top">
       <div class="social_container">
